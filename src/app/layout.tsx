@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/nav/nav";
 import MenuTab from "./components/nav/menu_tab";
+import HeroSection from "./components/hero/hero";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,8 +22,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <NavBar/>
         <MenuTab/>
-        <main className="pt-[60px]"> {/* Adjust the padding to match NavBar height */}
-
+       
+        <main className=""> {/* Adjust the padding to match NavBar height */}
+          
           {children}
         </main>
         </body>
