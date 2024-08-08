@@ -11,7 +11,7 @@ export default function Home() {
     <main className="">
    <HeroSection/>
       <FeaturedProducts/>
-      <Categories/>
+      {/* <Categories/> */}
       <Bestsellers/>
 
       <Gallery/>
