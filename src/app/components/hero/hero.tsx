@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const HeroSection: React.FC = () => {
     const [currentImage, setCurrentImage] = useState(0);
-    const images = ['/garmone.jpg', '/garmtwo.jpg', '/garmthree.jpg']; // Add your images here
+    const images = ['/garmone.jpg', '/garmtwo.jpg', '/garmthree.jpg','/bag.jpg']; // Add your images here
 
     const nextImage = () => {
         setCurrentImage((prevImage) => (prevImage + 1) % images.length);
