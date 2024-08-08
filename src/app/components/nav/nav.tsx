@@ -26,7 +26,7 @@ const NavBar: React.FC = () => {
     }, []);
 
     return (
-        <nav className={`h-[70px] fixed top-0 left-0 w-full flex items-center justify-between bg-white bg-opacity-70 dark:bg-dark dark:bg-opacity-70 border-b border-gray-200 dark:border-gray-600 px-4 z-50 transition-transform duration-300 ${showNav ? 'transform translate-y-0' : 'transform -translate-y-full'}`}>
+        <nav className={`h-[70px] fixed top-0 left-0 w-full flex items-center justify-between bg-white bg-opacity-70 dark:bg-dark dark:bg-opacity-70 border-b border-gray-200 dark:border-gray-600 px-4 z-50 transition-transform duration-300 '}`}>
             <div className="flex items-center">
                 <Link href="/" passHref>
                     <span className="text-xl font-bold text-link dark:text-white" id="logo">
