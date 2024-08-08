@@ -1,61 +1,71 @@
-'use client'
-import React, { useState, useEffect } from 'react';
+'use client';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { FaShoppingCart } from 'react-icons/fa';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { MdAccountCircle } from 'react-icons/md';
+import { HiMenuAlt3 } from 'react-icons/hi';
+import { IoMdClose } from 'react-icons/io';
 
 const NavBar: React.FC = () => {
-    const [showNav, setShowNav] = useState(true);
+    const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-    useEffect(() => {
-        let lastScrollY = window.scrollY;
-        const handleScroll = () => {
-            if (window.scrollY > lastScrollY) {
-                setShowNav(false);
-            } else {
-                setShowNav(true);
-            }
-            lastScrollY = window.scrollY;
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+    const toggleMobileMenu = () => setMobileMenuOpen(!isMobileMenuOpen);
 
     return (
-        <nav className={`h-[70px] fixed top-0 left-0 w-full flex items-center justify-between bg-white bg-opacity-70 dark:bg-dark dark:bg-opacity-70 border-b border-gray-200 dark:border-gray-600 px-4 z-50 transition-transform duration-300 '}`}>
-            <div className="flex items-center">
-                <Link href="/" passHref>
-                    <span className="text-xl font-bold text-link dark:text-white" id="logo">
-                        Afrogarm
-                    </span>
-                </Link>
+        <nav className="fixed top-0 left-0 w-full bg-white bg-opacity-90 dark:bg-dark dark:bg-opacity-90 border-b border-gray-200 dark:border-gray-600 px-4 py-2 z-50 transition-transform duration-300">
+            <div className="container mx-auto flex items-center justify-between h-[65px]">
+                <div className="flex items-center">
+                    <Link href="/" passHref>
+                        <span className="text-xl font-bold text-primary dark:text-secondary" id="logo">
+                            Afrogarm
+                        </span>
+                    </Link>
+                </div>
+                <div className="hidden md:flex items-center w-1/2 justify-center relative">
+                    <AiOutlineSearch className="absolute left-3 text-primary dark:text-secondary" />
+                    <input
+                        type="text"
+                        placeholder="Search"
+                        className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-dark dark:text-secondary"
+                    />
+                </div>
+                <div className="flex items-center space-x-4">
+                    <Link href="/cart" passHref>
+                        <span className="flex items-center text-primary dark:text-secondary font-medium hover:text-secondary dark:hover:text-primary cursor-pointer">
+                            <FaShoppingCart className="h-6 w-6 mr-1" />
+                            Cart
+                        </span>
+                    </Link>
+                    <Link href="/signin" passHref>
+                        <span className="flex items-center text-primary dark:text-secondary font-medium hover:text-secondary dark:hover:text-primary cursor-pointer">
+                            <MdAccountCircle className="h-6 w-6 mr-1" />
+                            Sign In
+                        </span>
+                    </Link>
+                    <button
+                        className="md:hidden p-2 text-primary dark:text-secondary"
+                        onClick={toggleMobileMenu}
+                    >
+                        {isMobileMenuOpen ? <IoMdClose className="h-6 w-6" /> : <HiMenuAlt3 className="h-6 w-6" />}
+                    </button>
+                </div>
             </div>
-            <div className="flex items-center w-1/2 justify-center relative">
-                <AiOutlineSearch className="absolute left-3 text-gray-400" />
-                <input
-                    type="text"
-                    placeholder="Search"
-                    className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
-                />
-            </div>
-            <div className="flex items-center space-x-4">
-                <Link href="/cart" passHref>
-                    <span className="flex items-center text-link dark:text-white font500 hover:text-sky-500 dark:hover:text-sky-400 cursor-pointer">
-                        <FaShoppingCart className="h-6 w-6 mr-1" />
-                        Cart
-                    </span>
-                </Link>
-                <Link href="/signin" passHref>
-                    <span className="flex items-center text-link dark:text-white font500 hover:text-sky-500 dark:hover:text-sky-400 cursor-pointer">
-                        <MdAccountCircle className="h-6 w-6 mr-1" />
-                        Sign In
-                    </span>
-                </Link>
-            </div>
+            {isMobileMenuOpen && (
+                <div className="md:hidden absolute top-[65px] left-0 w-full bg-white dark:bg-dark border-t border-gray-200 dark:border-gray-600 z-50">
+                    <div className="flex flex-col items-center py-4">
+                        <Link href="/" passHref>
+                            <span className="text-primary dark:text-secondary font-medium hover:text-secondary dark:hover:text-primary cursor-pointer mb-2">Home</span>
+                        </Link>
+                        <Link href="/cart" passHref>
+                            <span className="text-primary dark:text-secondary font-medium hover:text-secondary dark:hover:text-primary cursor-pointer mb-2">Cart</span>
+                        </Link>
+                        <Link href="/signin" passHref>
+                            <span className="text-primary dark:text-secondary font-medium hover:text-secondary dark:hover:text-primary cursor-pointer mb-2">Sign In</span>
+                        </Link>
+                    </div>
+                </div>
+            )}
         </nav>
     );
 };

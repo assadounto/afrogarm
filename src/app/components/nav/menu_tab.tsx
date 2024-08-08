@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useState } from 'react';
 import Link from 'next/link';
 
@@ -19,7 +19,7 @@ const MenuTab: React.FC = () => {
     const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
 
     return (
-        <div className="flex justify-between p-4 bg-white dark:bg-dark border-b border-gray-200 dark:border-gray-600 mt-[70px] z-40">
+        <div className="flex justify-between p-4 bg-white dark:bg-primary border-b border-gray-200 dark:border-gray-600 mt-[80px] z-40">
             {categories.map((category, index) => (
                 <div
                     key={index}
@@ -28,7 +28,7 @@ const MenuTab: React.FC = () => {
                     onMouseLeave={() => setHoveredCategory(null)}
                 >
                     <Link href="#">
-                        <span className="cursor-pointer text-link dark:text-white font-medium hover:text-sky-500 dark:hover:text-sky-400">
+                        <span className="cursor-pointer text-primary dark:text-secondary font-medium hover:text-secondary dark:hover:text-secondary">
                             {category.label}
                         </span>
                     </Link>
@@ -38,7 +38,7 @@ const MenuTab: React.FC = () => {
                                 {category.subcategories.map((subcategory, subIndex) => (
                                     <li key={subIndex} className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700">
                                         <Link href="#">
-                                            <span className="cursor-pointer text-link dark:text-white">
+                                            <span className="cursor-pointer text-primary dark:text-secondary">
                                                 {subcategory}
                                             </span>
                                         </Link>
