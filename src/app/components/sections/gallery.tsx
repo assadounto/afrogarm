@@ -14,7 +14,7 @@ const Gallery: React.FC = () => {
     return (
         <section className="py-16 bg-white">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-[#503c3b]">Client Gallery</h2>
+                <h2 className="text-3xl md:text-4xl font-medium  mb-8 text-dark">Client Gallery</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {galleryItems.map((item) => (
                         <div key={item.id} className="relative group overflow-hidden rounded-lg shadow-md">
@@ -24,7 +24,7 @@ const Gallery: React.FC = () => {
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-[#503c3b] bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                                <button className="text-white bg-[#edceab] py-2 px-4 rounded-full hover:bg-[#c8a987]">
+                                <button className="text-dark bg-white py-2 px-4 rounded-full hover:bg-scale-110">
                                     View Details
                                 </button>
                             </div>

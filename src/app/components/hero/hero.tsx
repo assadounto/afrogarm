@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const HeroSection: React.FC = () => {
     const [currentImage, setCurrentImage] = useState(0);
-    const images = ['/garmone.jpg', '/garmtwo.jpg', '/garmthree.jpg','/bag.jpg']; // Add your images here
+    const images = ['/garmone.jpg', '/gallery1.jpg']; // Add your images here
 
     const nextImage = () => {
         setCurrentImage((prevImage) => (prevImage + 1) % images.length);
@@ -34,7 +34,7 @@ const HeroSection: React.FC = () => {
                 <h1 className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Discover the Latest Trends</h1>
                 <p className="text-lg md:text-2xl mb-8">Shop the newest arrivals and best deals</p>
                 <Link href="/shop" passHref>
-                    <span className="inline-block bg-primary text-secondary py-3 px-6 rounded-full text-lg md:text-xl font-medium hover:bg-[#3b2d2b] transition-transform transform hover:scale-105">
+                    <span className="inline-block bg-white text-dark py-2 px-6 rounded-md text-lg md:text-xl font-medium  transition-transform transform hover:scale-105">
                         Shop Now
                     </span>
                 </Link>
@@ -46,12 +46,7 @@ const HeroSection: React.FC = () => {
                     </span>
                 </Link>
             </div>
-            <button
-                onClick={nextImage}
-                className="absolute right-5 bottom-10 bg-primary text-secondary py-2 px-4 rounded-full text-sm font-medium hover:bg-[#3b2d2b] transition-transform transform hover:scale-105"
-            >
-                Next Image
-            </button>
+           
         </div>
     );
 };
