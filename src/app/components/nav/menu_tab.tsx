@@ -140,7 +140,7 @@ const MenuTab: React.FC = () => {
                     className="w-full flex justify-between items-center text-left text-dark dark:text-white font-medium focus:outline-none"
                     onClick={toggleMenu}
                 >
-                    Menu
+                    Categories
                     {isMenuOpen ? (
                         <FaChevronUp className="ml-2 h-4 w-4" />
                     ) : (
